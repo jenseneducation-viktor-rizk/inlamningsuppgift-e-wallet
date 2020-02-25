@@ -1,32 +1,208 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  
+}
+</script>
+
 <style lang="scss">
+@import url(https://fonts.googleapis.com/css?family=PT+Mono|Source+Sans+Pro:600,700&display=swap);
+body {
+  display: block;
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: PT Mono, monospace;
+  padding: 1rem;
+  height: 100vh;
+  max-width: 24rem;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+h1, h2, h3 {
+  font-family: Source Sans Pro,sans-serif;
+}
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+a.cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  border: .125rem solid #000;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: .5rem;
+  margin: 2rem 0;
+  &:hover {
+    background: #000;
+    color: #ddd;
   }
+}
+
+.card {
+  max-width: 24rem;
+  height: 14rem;
+  border-radius: .6rem;
+  background: #eee;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 0 0.5rem rgba(0,0,0,.4);
+  box-shadow: 0 0 0.5rem rgba(0,0,0,.4);
+  display: grid;
+  gap: .5rem 0;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 2.8rem;
+  text-shadow: -1px -1px 2px hsla(0,0%,100%,.4);
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    grid-column: auto/span 2;
+    grid-row: auto/span 2;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  section.number {
+    font-size: 1.6rem;
+    letter-spacing: .05rem;
+    padding: .5rem 0 0;
+    text-transform: uppercase;
+  }
+  section.info, section.number {
+    grid-column: auto/span 2;
+    grid-row: auto/span 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  section.info aside.holder {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  section aside.valid span, section aside.valid p {
+    text-align: right;
+  }
+  section aside span {
+    display: block;
+    text-transform: uppercase;
+    font-size: .7rem;
+    margin: 0 0 .25rem;
+  }
+  section aside p {
+    display: block;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-transform: uppercase;
+h1, .top p {
+    text-align: center;
+    margin: 0;
+  } 
+p {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: .8rem;
+    font-weight: 600;
+    color: rgba(0,0,0,.4);
+    padding: .25rem;
+  }
+  h1 {
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    line-height: 2rem;
+    font-size: 2rem;
+    padding: 1.5rem 0;
+  }
+}
+.card-stack {
+    margin: 2rem 0 12rem;
+    display: grid;
+    grid-auto-rows: 4rem;
+}
+
+//CARD FORM
+.card-form {
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+  input, select {
+    border: 1px solid #000;
+    border-radius: .25rem;
+    padding: .5rem;
+    height: 2.6rem;
+    margin: 0 0 .8rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1rem;
+    width: 100%;
+  }
+  label {
+    padding: .25rem 0;
+    font-size: .7rem;
+    text-transform: uppercase;
+  }
+}
+
+.col-1 {
+  grid-column: auto/span 1;
+}
+.col-2 {
+  grid-column: auto/span 2;
 }
 </style>
