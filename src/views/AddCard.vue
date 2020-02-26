@@ -1,10 +1,11 @@
 <template>
   <main id="add-card">
-    <Top />
+    <Top :top="{title: 'Add New Card', type: 'New Card'}" />
     <Card :card="newCard"/>
     <CardForm 
     @formCard="mergeCards"/>
     <a class="cta" @click="pushCard">Add Card</a>
+    <a class="cta" @click="routerPush">Cancel</a>
   </main>
 </template>
 
@@ -30,6 +31,9 @@ export default {
     },
     pushCard() {
       this.$root.$data.cards.push(this.newCard);
+      this.routerPush()
+    },
+    routerPush() {
       this.$router.push('/');
     }
   }

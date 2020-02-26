@@ -1,6 +1,6 @@
 <template>
   <main class="home">
-    <Top />
+    <Top :top="{title: 'E-Wallet', type: 'Active Card'}" />
     <Card :card="activeCard"/>
     <CardStack :cards="cards"
     v-on:emitId="changeActive"/>

@@ -72,6 +72,7 @@ a.cta {
   &:hover {
     background: #000;
     color: #ddd;
+    cursor: pointer;
   }
 }
 
@@ -181,10 +182,9 @@ p {
       overflow: hidden;
 
       &:hover {
-      // cursor: pointer;
+      cursor: pointer;
       margin-bottom: 30px;
       transform: translateY(-6rem);
-      // z-index: 999;
   }
     }
     
