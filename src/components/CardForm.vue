@@ -19,7 +19,7 @@
         <option value="11">11</option> 
         <option value="12">12</option>
       </select> 
-      <select name="month" class="col-1">
+      <select name="year" class="col-1">
         <option value="21">21</option> 
         <option value="22">22</option> 
         <option value="23">23</option> 

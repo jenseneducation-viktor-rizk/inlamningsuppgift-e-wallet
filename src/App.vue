@@ -147,7 +147,7 @@ a.cta {
   -ms-flex-direction: column;
   flex-direction: column;
   text-transform: uppercase;
-h1, .top p {
+h1, p {
     text-align: center;
     margin: 0;
   } 

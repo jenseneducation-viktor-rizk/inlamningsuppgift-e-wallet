@@ -1,8 +1,9 @@
 <template>
   <main class="home">
     <Top />
-    <Card />
-    <CardStack />
+    <Card v-bind:card="activeCard"/>
+    <CardStack v-bind:cards="cards"
+    v-on:emitId="changeActive"/>
     <router-link class="cta" to="/addcard">Add New Card</router-link>
   </main>
 </template>
@@ -14,6 +15,23 @@ import CardStack from '../components/CardStack'
 
 export default {
   name: 'Home',
-  components: {Top, Card, CardStack}  
+  components: {Top, Card, CardStack},
+  data(){return{
+    activeIndex: 0 
+  }},
+  
+  computed: {
+    activeCard() {
+        return this.$root.$data.cards[this.activeIndex]
+      },
+    cards() {
+      return this.$root.$data.cards
+        }
+  },
+  methods: {
+    changeActive(id) {
+      this.activeIndex = this.cards.findIndex((card) => card.id == id )
+    }
+  }  
 }
 </script>
