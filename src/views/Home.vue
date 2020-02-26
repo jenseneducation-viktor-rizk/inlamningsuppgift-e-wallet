@@ -1,17 +1,17 @@
 <template>
   <main class="home">
     <Top />
-    <Card v-bind:card="activeCard"/>
-    <CardStack v-bind:cards="cards"
+    <Card :card="activeCard"/>
+    <CardStack :cards="cards"
     v-on:emitId="changeActive"/>
     <router-link class="cta" to="/addcard">Add New Card</router-link>
   </main>
 </template>
 
 <script>
-import Top from '../components/Top'
-import Card from '../components/Card.vue'
-import CardStack from '../components/CardStack'
+import Top from '@/components/Top'
+import Card from '@/components/Card.vue'
+import CardStack from '@/components/CardStack'
 
 export default {
   name: 'Home',

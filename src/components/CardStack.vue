@@ -16,7 +16,6 @@ export default {
     },
     methods: {
         emitCardId(id) {
-            console.log("Hello")
             this.$emit('emitId', id)
         }
     } 

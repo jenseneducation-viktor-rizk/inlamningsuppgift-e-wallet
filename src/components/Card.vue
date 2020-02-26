@@ -1,6 +1,9 @@
 <template>
-<article class="card">
-    <header></header>
+<article class="card" :class="card.vendor">
+    <header>
+        <img src="@/assets/chip-light.svg" alt="chip">
+        <img v-bind:src="require(`@/assets/vendor-${card.vendor}.svg`)" alt="vendor">
+    </header>
     <section class="number"> {{card.number}} </section>
     <section class="info">
         <aside class="holder">
@@ -9,7 +12,7 @@
         </aside>
         <aside class="valid">
             <span>Valid Until</span>
-            <p> {{card.valid}} </p>
+            <p> {{card.month}}/{{card.year}} </p>
         </aside>
     </section>
 </article>

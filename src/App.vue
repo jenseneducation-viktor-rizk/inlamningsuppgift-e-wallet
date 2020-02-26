@@ -136,6 +136,7 @@ a.cta {
     margin: 0;
     padding: 0;
   }
+  
 }
 
 .top {
@@ -170,9 +171,23 @@ p {
   }
 }
 .card-stack {
-    margin: 2rem 0 12rem;
+    margin: 8rem 0 12rem;
     display: grid;
-    grid-auto-rows: 4rem;
+    grid-auto-rows: 7rem;
+    
+    .card {
+      transform: scale(1);
+      transition: ease-out 0.5s;
+      overflow: hidden;
+
+      &:hover {
+      // cursor: pointer;
+      margin-bottom: 30px;
+      transform: translateY(-6rem);
+      // z-index: 999;
+  }
+    }
+    
 }
 
 //CARD FORM
@@ -204,5 +219,26 @@ p {
 }
 .col-2 {
   grid-column: auto/span 2;
+}
+
+// CARD CLASSES
+.bitcoin {
+    background: linear-gradient(.689turn,hsla(0,0%,100%,.15),hsla(0,0%,100%,0) 99.07%),#ffae34;
+    color: #222;
+}
+.blockchain {
+    background: linear-gradient(248.52deg,rgba(0,0,0,.15) 1.49%,transparent),#8b58f9;
+    color: #fff;
+}
+.ninja {
+    background: linear-gradient(248.3deg,hsla(0,0%,100%,.15),hsla(0,0%,100%,0)),#222;
+    color: #fff;
+}
+.evil {
+    background: linear-gradient(248.3deg,rgba(0,0,0,.16),transparent),#f33355;
+    color: #fff;
+}
+.blank {
+    background: linear-gradient(237.75deg,hsla(0,0%,100%,.24),hsla(0,0%,100%,0)),#d0d0d0;
 }
 </style>
