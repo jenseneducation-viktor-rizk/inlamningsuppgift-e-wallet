@@ -22,7 +22,7 @@ export default {
         number: "",
         valid: "",
         vendor: "bitcoin",
-        id: 0
+        id: Date.now()
       }
   }},
   methods: {
@@ -31,10 +31,13 @@ export default {
     },
     pushCard() {
       this.$root.$data.cards.push(this.newCard);
-      this.routerPush()
+      this.$router.push('/');
     },
     routerPush() {
-      this.$router.push('/');
+      if (JSON.parse(localStorage.getItem('cards')).length > 0){
+        this.$router.push('/');
+      }
+      
     }
   }
   

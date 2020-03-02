@@ -55,8 +55,7 @@ export default {
         name: "",
         number: "",
         valid: "",
-        vendor: "bitcoin",
-        id: Date.now()
+        vendor: "bitcoin"
       }
   }},
   methods: {

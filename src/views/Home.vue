@@ -1,9 +1,11 @@
 <template>
   <main class="home">
     <Top :top="{title: 'E-Wallet', type: 'Active Card'}" />
-    <Card :card="activeCard"/>
+    <Card 
+    :card="activeCard"/>
+    <a class="cta" @click="removeCard">Remove</a>
     <CardStack :cards="cards"
-    v-on:emitId="changeActive"/>
+    @emitId="changeActive"/>
     <router-link class="cta" to="/addcard">Add New Card</router-link>
   </main>
 </template>
@@ -31,6 +33,12 @@ export default {
   methods: {
     changeActive(id) {
       this.activeIndex = this.cards.findIndex((card) => card.id == id )
+    },
+    removeCard() {
+      
+        this.$root.$data.cards.splice(this.activeIndex, 1)
+        this.activeIndex -= 1;
+      
     }
   }  
 }
