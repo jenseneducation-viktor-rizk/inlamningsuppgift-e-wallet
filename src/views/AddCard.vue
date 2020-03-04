@@ -3,7 +3,7 @@
     <Top :top="{title: 'Add New Card', type: 'New Card'}" />
     <Card :card="newCard"/>
     <CardForm 
-    @formCard="mergeCards"/>
+    @emitFormCard="mergeCards"/>
     <a class="cta" @click="pushCard">Add Card</a>
     <a class="cta" @click="routerPush">Cancel</a>
   </main>
@@ -20,7 +20,8 @@ export default {
     newCard: {
         name: "",
         number: "",
-        valid: "",
+        year: "YY",
+        month: "MM",
         vendor: "bitcoin",
         id: Date.now()
       }

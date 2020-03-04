@@ -1,11 +1,17 @@
 <template>
   <main class="home">
-    <Top :top="{title: 'E-Wallet', type: 'Active Card'}" />
-    <Card 
+    <Top v-if="activeCard" 
+    :top="{title: 'E-Wallet', type: 'Active Card'}" />
+    <Top v-else 
+    :top="{title: 'E-Wallet', type: ''}" />
+    <Card v-if="activeCard"
     :card="activeCard"/>
-    <a class="cta" @click="removeCard">Remove</a>
+    <a class="cta" 
+    v-if="activeCard"
+    @click="removeCard(activeIndex)">Remove</a>
+    <h2 v-else>No Cards</h2>
     <CardStack :cards="cards"
-    @emitId="changeActive"/>
+    @cardClicked="changeActive"/>
     <router-link class="cta" to="/addcard">Add New Card</router-link>
   </main>
 </template>
@@ -19,27 +25,26 @@ export default {
   name: 'Home',
   components: {Top, Card, CardStack},
   data(){return{
-    activeIndex: 0 
+    activeIndex: 0
   }},
   
   computed: {
-    activeCard() {
-        return this.$root.$data.cards[this.activeIndex]
-      },
     cards() {
       return this.$root.$data.cards
+        },
+    activeCard() {
+      return this.cards[this.activeIndex]
         }
   },
   methods: {
+    removeCard(activeIndex){
+      this.$root.removeCard(activeIndex)
+      this.activeIndex = 0;
+    },
     changeActive(id) {
       this.activeIndex = this.cards.findIndex((card) => card.id == id )
-    },
-    removeCard() {
-      
-        this.$root.$data.cards.splice(this.activeIndex, 1)
-        this.activeIndex -= 1;
-      
     }
+    
   }  
 }
 </script>

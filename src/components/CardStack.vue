@@ -16,7 +16,7 @@ export default {
     },
     methods: {
         emitCardId(id) {
-            this.$emit('emitId', id)
+            this.$emit('cardClicked', id)
         }
     } 
 }

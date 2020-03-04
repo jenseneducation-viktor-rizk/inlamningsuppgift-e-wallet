@@ -54,13 +54,16 @@ export default {
     card: {
         name: "",
         number: "",
-        valid: "",
-        vendor: "bitcoin"
+        year: "",
+        month: "",
+        vendor: "bitcoin",
+        id: Date.now()
+
       }
   }},
   methods: {
     emitNewCard() {
-      return this.$emit('formCard', this.card)
+      return this.$emit('emitFormCard', this.card)
     }
   }
 }

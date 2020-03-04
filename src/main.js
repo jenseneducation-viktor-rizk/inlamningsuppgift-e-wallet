@@ -20,6 +20,11 @@ new Vue({
       this.$router.push('/addcard')
     }
   },
+  methods: {
+    removeCard(activeIndex) {
+      this.cards.splice(activeIndex, 1)
+  }
+  },
   watch: {
     cards(newCards) {
       const parsed = JSON.stringify(newCards)
