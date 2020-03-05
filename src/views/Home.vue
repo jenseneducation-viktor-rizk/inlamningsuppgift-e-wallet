@@ -1,17 +1,10 @@
 <template>
   <main class="home">
-    <Top v-if="activeCard" 
-    :top="{title: 'E-Wallet', type: 'Active Card'}" />
-    <Top v-else 
-    :top="{title: 'E-Wallet', type: ''}" />
-    <Card v-if="activeCard"
-    :card="activeCard"/>
-    <a class="cta" 
-    v-if="activeCard"
-    @click="removeCard(activeIndex)">Remove</a>
-    <h2 v-else>No Cards</h2>
-    <CardStack :cards="cards"
-    @cardClicked="changeActive"/>
+    <Top v-if="activeCard" :top="{title: 'E-Wallet', type: 'Active Card'}" />
+    <Top v-else :top="{title: 'E-Wallet', type: 'No Cards'}" />
+    <Card v-if="activeCard" :card="activeCard"/>
+    <a class="cta" v-if="activeCard" @click="removeCard(activeIndex)">Remove</a>
+    <CardStack :cards="cards" @cardClicked="changeActive"/>
     <router-link class="cta" to="/addcard">Add New Card</router-link>
   </main>
 </template>

@@ -21,6 +21,9 @@ new Vue({
     }
   },
   methods: {
+    pushCard(newCard) {
+      this.cards.push(newCard);
+    },
     removeCard(activeIndex) {
       this.cards.splice(activeIndex, 1)
   }
