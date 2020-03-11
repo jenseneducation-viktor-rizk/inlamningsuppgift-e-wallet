@@ -2,8 +2,9 @@
   <main id="add-card">
     <Top :top="{title: 'Add New Card', type: 'New Card'}" />
     <Card :card="newCard"/>
-    <CardForm @emitFormCard="mergeCards"/>
-    <a class="cta" @click="pushCard(newCard)">Add Card</a>
+    <CardForm 
+    @emitFormCard="mergeCards"/>
+    <a class="cta" @click="pushCard">Add Card</a>
     <a class="cta" @click="routerPush">Cancel</a>
   </main>
 </template>
@@ -29,8 +30,8 @@ export default {
     mergeCards(formCard) {
       this.newCard = formCard;
     },
-    pushCard(newCard) {
-      this.$root.pushCard(newCard)
+    pushCard() {
+      this.$store.dispatch('addCard', this.newCard);
       this.$router.push('/');
     },
     routerPush() {
